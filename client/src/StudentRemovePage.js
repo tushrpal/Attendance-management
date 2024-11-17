@@ -73,14 +73,14 @@ const StudentRemovalForm = () => {
                 <td>Gender:</td>
                 <td>{studentDetails.Gender}</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td>Community:</td>
                 <td>{studentDetails.Community}</td>
               </tr>
               <tr>
                 <td>Minority Community:</td>
                 <td>{studentDetails.Minority_Community}</td>
-              </tr>
+              </tr> */}
               <tr>
                 <td>Blood Group:</td>
                 <td>{studentDetails.Blood_Group}</td>

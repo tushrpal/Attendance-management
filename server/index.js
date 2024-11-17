@@ -5,14 +5,20 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const cors = require('cors');
 const Docxtemplater = require('docxtemplater');
 const officegen = require('officegen');
+require('dotenv').config();
+
 
 const path = require('path');
 const app = express();
 const StudentModel = require('./models/Student1');
 const AttendanceModel = require('./models/Attendance2');
 app.use(express.json());
-app.use(cors({ origin: ["http://localhost:3000", "https://mern-attendance-app.onrender.com"] }));
-mongoose.connect('// add your mongodb connection url', {
+app.use(cors({
+  origin: ["http://localhost:3000", "https://mern-attendance-app.onrender.com"],
+  credentials: true
+}));
+
+mongoose.connect('mongodb+srv://tushrpal:tushrpal@cluster0.wn1ul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
 });
 
@@ -24,8 +30,8 @@ app.post('/form/insert', async (req, res) => {
         Branch_of_studying,
         Date_of_Birth,
         Gender,
-        Community,
-        Minority_Community,
+        // Community,
+        // Minority_Community,
         Blood_Group,
         Aadhar_number,
         Mobile_number,
@@ -39,8 +45,8 @@ app.post('/form/insert', async (req, res) => {
         Branch_of_studying,
         Date_of_Birth,
         Gender,
-        Community,
-        Minority_Community,
+        // Community,
+        // Minority_Community,
         Blood_Group,
         Aadhar_number,
         Mobile_number,

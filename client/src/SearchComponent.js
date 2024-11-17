@@ -1,31 +1,44 @@
 import React, { useState } from 'react';
 
-const SearchComponent = ({ data, searchKey, setSearchResults }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+function SearchComponent({ data, setSearchResults }) {
+  const [nameQuery, setNameQuery] = useState('');
+  const [branchQuery, setBranchQuery] = useState('');
+  const [registerNumberQuery, setRegisterNumberQuery] = useState('');
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
+  const handleSearch = () => {
+    const filteredResults = data.filter((item) => {
+      const matchesName = item.Name.toLowerCase().includes(nameQuery.toLowerCase());
+      const matchesBranch = item.Branch_of_studying.toLowerCase().includes(branchQuery.toLowerCase());
+      const matchesRegisterNumber = item.Register_number.toLowerCase().includes(registerNumberQuery.toLowerCase());
+      return matchesName && matchesBranch && matchesRegisterNumber;
+    });
 
-    // Filter the data based on the search term
-    const filteredResults = data.filter((item) =>
-      item[searchKey].toLowerCase().includes(value.toLowerCase())
-    );
-
-    // Set the filtered results
     setSearchResults(filteredResults);
   };
 
   return (
-    <div>
+    <div className="SearchComponent">
       <input
         type="text"
-        value={searchTerm}
-        onChange={handleSearch}
-        placeholder="Search..."
+        placeholder="Search by Name"
+        value={nameQuery}
+        onChange={(e) => setNameQuery(e.target.value)}
       />
+      <input
+        type="text"
+        placeholder="Search by Branch"
+        value={branchQuery}
+        onChange={(e) => setBranchQuery(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Search by Register Number"
+        value={registerNumberQuery}
+        onChange={(e) => setRegisterNumberQuery(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
-};
+}
 
 export default SearchComponent;

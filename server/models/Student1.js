@@ -21,12 +21,7 @@ const StudentSchema = new mongoose.Schema({
     Gender: {
         type:String
     },
-    Community: {
-        type:String
-    },
-    Minority_Community: {
-        type:String
-    },
+   
     Blood_Group: {
         type:String
     },

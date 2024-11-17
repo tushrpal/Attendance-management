@@ -3,14 +3,14 @@ import './App.css';
 import Axios from 'axios';
 
 import { signOut } from "firebase/auth";
-import { storage } from "./firebase";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
+// import { storage } from "./firebase";
+// import {
+//   ref,
+//   uploadBytes,
+//   getDownloadURL,
+//   listAll,
+//   list,
+// } from "firebase/storage";
 
 import { auth } from "./firebase";
 import { Navigate } from 'react-router-dom';

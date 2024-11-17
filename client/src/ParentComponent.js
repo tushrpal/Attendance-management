@@ -22,6 +22,7 @@ function ParentComponent(studentlist) {
       ...prevAttendanceData,
       [studentId]: value,
     }));
+    console.log(`Changing attendance for ${studentId}`);
   };
 
   // Render StudentList component with necessary props
